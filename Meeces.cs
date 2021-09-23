@@ -4,12 +4,12 @@ namespace MeecesPieces
 {
     public class Meeces
     {
-        public static int Width = 9;  // Кол-во фишек по горизонтали
+        public static int Width = 9;   // Кол-во фишек по горизонтали
         public static int Height = 9;  // Кол-во фишек по вертикали
-        public static Meece Current;    // Текущая фишка для установки на поле
-        private Meece[,] meeces;        // Двумерный массив фишек на поле
-        private int[] dx = new int[] { 0, 1, 0, -1 };
-        private int[] dy = new int[] { -1, 0, 1, 0 };
+        public static Meece Current;   // Текущая фишка для установки на поле
+        private Meece[,] meeces;       // Двумерный массив фишек на поле
+        private int[] dx = new int[] { 0, 1, 0, -1 };   // Массивы смещений координат для обхода
+        private int[] dy = new int[] { -1, 0, 1, 0 };   //  четырёх соседних фишек.
 
         /// <summary>
         /// Конструктор
@@ -18,6 +18,7 @@ namespace MeecesPieces
         {
             Init();
         }
+
         /// <summary>
         /// Инициализатор поля с текущими размерами
         /// </summary>
@@ -25,6 +26,7 @@ namespace MeecesPieces
         {
             Init(Width, Height);
         }
+
         /// <summary>
         /// Инициализатор поля с заданными размерами
         /// </summary>
@@ -42,13 +44,9 @@ namespace MeecesPieces
                 for (int x = 0; x < Width; x++)
                     meeces[x, y] = null;
 
-            Meece m = new Meece();
-            if (m.Extra == 2)
-                m.Extra = 1;
-            meeces[width / 2, height / 2] = m;
-
             Current = GetNewCurrent();
         }
+
         /// <summary>
         /// Проверка границ массива фишек на допустимость
         /// </summary>
@@ -59,6 +57,7 @@ namespace MeecesPieces
             else
                 return true;
         }
+
         /// <summary>
         /// Возвращает фишку по координатам или null если индексы не в допустимых пределах.
         /// ( Возврат также будет null если по координатам нет фишки
@@ -70,6 +69,7 @@ namespace MeecesPieces
             else
                 return null;
         }
+
         /// <summary>
         /// Попытка поставить текущую фишку (Current) на поле
         /// </summary>
@@ -94,7 +94,7 @@ namespace MeecesPieces
                 return false;
         }
         /// <summary>
-        /// Попытка поставить фишку на поле
+        /// Проверка на возможность поставить фишку
         /// </summary>
         private bool CanSetMeece(int x, int y, Meece meece)
         {
@@ -102,14 +102,14 @@ namespace MeecesPieces
             {
                 if (meece.Extra == 2)           // ставится фишка-стиратель, то...
                 {
-                    //meeces[x, y] = null;        // стираем фишку на поле
-                    return true;                // и выходим.
+                    return true;                // возвращаем true.
                 }
             }
             else                                // Иначе ( если это пустое поле )...
             {
-                if (meece.Extra == 2)
-                    return false;
+                if (meece.Extra == 2)           // и ставится фишка-стиратель, то...
+                    return false;               // возвращаем false.
+
                 bool hasNearby = false;
                 for (int d = 0; d < 4; d++)     // Проверяем все 4 поля вокруг...
                 {
@@ -123,12 +123,12 @@ namespace MeecesPieces
                 }
                 if (hasNearby)                  // Если установлено, что имеется фишка к которой можно
                 {                               // присоединиться, то
-                    //meeces[x, y] = meece;       // ставим фишку
-                    return true;                // и выходим.
+                    return true;                // выходим.
                 }
             }                                   // Иначе - рядом нет ни одной фишки для присоединения.
             return false;
         }
+
         /// <summary>
         /// Проверяет все строки и колонки на заполненность
         /// и потом удаляет полные.
@@ -159,6 +159,11 @@ namespace MeecesPieces
                         meeces[x, y] = null;
         }
 
+        /// <summary>
+        /// Получаем новую текущую фишку с проверкой на возможность установки
+        /// и на пустоту поля.
+        /// </summary>
+        /// <returns></returns>
         private Meece GetNewCurrent()
         {
             Meece ret = new Meece();
@@ -177,8 +182,8 @@ namespace MeecesPieces
                 }
                 if (isEmptyField)
                 {
-                    if (ret.Extra == 2)
-                        ret.Extra = 1;
+                    while (ret.Extra == 2)
+                        ret = new Meece();
                     meeces[Width / 2, Height / 2] = ret;
                     ret = new Meece();
                 }

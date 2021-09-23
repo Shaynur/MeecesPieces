@@ -23,7 +23,8 @@ namespace MeecesPieces
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-
+            Program.GameCore.Init();
+            GameField.Refresh();
         }
 
         private void GameField_Paint(object sender, PaintEventArgs e)
@@ -48,23 +49,11 @@ namespace MeecesPieces
             SetGameFieldSize();
         }
 
-        private void DrawMeece(int x, int y, Graphics g, Bitmap bmp, Color newColor)
-        {
-            ColorMap[] colorMap = new ColorMap[1];
-            colorMap[0] = new ColorMap();
-            colorMap[0].OldColor = Color.Magenta;
-            colorMap[0].NewColor = newColor;
-            ImageAttributes attr = new ImageAttributes();
-            attr.SetRemapTable(colorMap);
-            // Draw using the color map
-            Rectangle rect = new Rectangle(x, y, bmp.Width, bmp.Height);
-            g.DrawImage(bmp, rect, 0, 0, rect.Width, rect.Height, GraphicsUnit.Pixel, attr);
-        }
 
         private void GameField_MouseClick(object sender, MouseEventArgs e)
         {
-            int x = (e.X - 2) / meeceWidth;
-            int y = (e.Y - 2) / meeceHeight;
+            int x = (e.X) / meeceWidth;
+            int y = (e.Y) / meeceHeight;
             if (Program.GameCore.TrySetCurrentMeece(x, y))
                 GameField.Refresh();
         }
@@ -84,11 +73,6 @@ namespace MeecesPieces
             h -= GameField.Height;
             Width += w + 4;
             Height += h + 4;
-        }
-
-        private void Form1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }
