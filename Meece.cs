@@ -18,7 +18,7 @@ namespace MeecesPieces
         /// Максимально возможные значения свойств фишки
         /// ( Value = [0...MaxValue-1] )
         /// </summary>
-        public static int[] MaxValue = new int[] { 3, 3, 5 };
+        public static int[] MaxValue = new int[] { 3, 4, 5 };
 
         /// <summary>
         /// Свойство экстра-фишки
@@ -142,7 +142,8 @@ namespace MeecesPieces
             {
                 0 => Color.Blue,
                 1 => Color.Red,
-                2 => Color.Yellow,
+                2 => Color.Lime,
+                3 => Color.Yellow,
                 _ => Color.White
             };
 
