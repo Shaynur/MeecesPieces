@@ -120,12 +120,12 @@ namespace MeecesPieces
         /// </summary>
         private void SetBitmap()
         {
-            if(Extra == 1)
+            if (Extra == 1)
             {
                 bitmap = new Bitmap(Properties.Resources.Extra1);
                 return;
             }
-            else if(Extra == 2)
+            else if (Extra == 2)
             {
                 bitmap = new Bitmap(Properties.Resources.Extra2);
                 return;

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace MeecesPieces
+﻿namespace MeecesPieces
 {
     public class Meeces
     {
@@ -43,7 +41,6 @@ namespace MeecesPieces
             for (int y = 0; y < Height; y++)
                 for (int x = 0; x < Width; x++)
                     meeces[x, y] = null;
-
             Current = GetNewCurrent();
         }
 
