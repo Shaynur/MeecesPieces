@@ -67,6 +67,12 @@ namespace MeecesPieces
             Width += w + 4;
             Height += h + 4;
         }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            HelpForm hf = new HelpForm();
+            hf.ShowDialog();
+        }
     }
 }
 

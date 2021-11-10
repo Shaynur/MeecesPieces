@@ -33,8 +33,8 @@ namespace MeecesPieces
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.GameField = new System.Windows.Forms.Panel();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -42,7 +42,8 @@ namespace MeecesPieces
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1,
-            this.toolStripLabel1});
+            this.toolStripLabel1,
+            this.toolStripButton2});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(307, 35);
@@ -69,14 +70,6 @@ namespace MeecesPieces
             this.toolStripLabel1.Text = "Next:";
             this.toolStripLabel1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 249);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(307, 22);
-            this.statusStrip1.TabIndex = 1;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
             // GameField
             // 
             this.GameField.BackColor = System.Drawing.Color.Black;
@@ -85,10 +78,21 @@ namespace MeecesPieces
             this.GameField.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GameField.Location = new System.Drawing.Point(0, 35);
             this.GameField.Name = "GameField";
-            this.GameField.Size = new System.Drawing.Size(307, 214);
+            this.GameField.Size = new System.Drawing.Size(307, 236);
             this.GameField.TabIndex = 2;
             this.GameField.Paint += new System.Windows.Forms.PaintEventHandler(this.GameField_Paint);
             this.GameField.MouseClick += new System.Windows.Forms.MouseEventHandler(this.GameField_MouseClick);
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(23, 32);
+            this.toolStripButton2.Text = "?";
+            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
             // Form1
             // 
@@ -96,7 +100,6 @@ namespace MeecesPieces
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(307, 271);
             this.Controls.Add(this.GameField);
-            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
@@ -114,9 +117,9 @@ namespace MeecesPieces
 
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.Panel GameField;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
     }
 }
 
