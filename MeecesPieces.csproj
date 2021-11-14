@@ -7,10 +7,19 @@
     <StartupObject></StartupObject>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <NoWin32Manifest>true</NoWin32Manifest>
+    <Copyright>Sergey Shainurov</Copyright>
+    <PackageIcon>Extra1.png</PackageIcon>
+    <PackageIconUrl />
+    <Authors>Sergey Shainurov (Autor)</Authors>
+    <Company></Company>
+    <Description>Tiles game.</Description>
+    <ApplicationIcon>MeecesPieces.ico</ApplicationIcon>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DefineConstants>TRACE</DefineConstants>
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
   </PropertyGroup>
 
   <ItemGroup>
@@ -37,6 +46,10 @@
     <None Update="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Resources\Extra1.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
     </None>
   </ItemGroup>
 

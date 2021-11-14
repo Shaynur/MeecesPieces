@@ -33,9 +33,12 @@ namespace MeecesPieces
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.GameField = new System.Windows.Forms.Panel();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.Panel1 = new System.Windows.Forms.Panel();
+            this.GameField = new System.Windows.Forms.PictureBox();
             this.toolStrip1.SuspendLayout();
+            this.Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GameField)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -70,19 +73,6 @@ namespace MeecesPieces
             this.toolStripLabel1.Text = "Next:";
             this.toolStripLabel1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             // 
-            // GameField
-            // 
-            this.GameField.BackColor = System.Drawing.Color.Black;
-            this.GameField.BackgroundImage = global::MeecesPieces.Properties.Resources.Background;
-            this.GameField.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.GameField.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GameField.Location = new System.Drawing.Point(0, 35);
-            this.GameField.Name = "GameField";
-            this.GameField.Size = new System.Drawing.Size(307, 236);
-            this.GameField.TabIndex = 2;
-            this.GameField.Paint += new System.Windows.Forms.PaintEventHandler(this.GameField_Paint);
-            this.GameField.MouseClick += new System.Windows.Forms.MouseEventHandler(this.GameField_MouseClick);
-            // 
             // toolStripButton2
             // 
             this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
@@ -94,20 +84,47 @@ namespace MeecesPieces
             this.toolStripButton2.Text = "?";
             this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
+            // Panel1
+            // 
+            this.Panel1.BackColor = System.Drawing.Color.Black;
+            this.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Panel1.Controls.Add(this.GameField);
+            this.Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Panel1.Location = new System.Drawing.Point(0, 35);
+            this.Panel1.Name = "Panel1";
+            this.Panel1.Size = new System.Drawing.Size(307, 236);
+            this.Panel1.TabIndex = 2;
+            // 
+            // GameField
+            // 
+            this.GameField.BackgroundImage = global::MeecesPieces.Properties.Resources.Background;
+            this.GameField.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GameField.Location = new System.Drawing.Point(0, 0);
+            this.GameField.Name = "GameField";
+            this.GameField.Size = new System.Drawing.Size(303, 232);
+            this.GameField.TabIndex = 0;
+            this.GameField.TabStop = false;
+            this.GameField.Paint += new System.Windows.Forms.PaintEventHandler(this.GameField_Paint);
+            this.GameField.MouseClick += new System.Windows.Forms.MouseEventHandler(this.GameField_MouseClick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(307, 271);
-            this.Controls.Add(this.GameField);
+            this.Controls.Add(this.Panel1);
             this.Controls.Add(this.toolStrip1);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Meeces Pieces";
             this.Shown += new System.EventHandler(this.Form1_Shown);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.GameField)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -117,9 +134,10 @@ namespace MeecesPieces
 
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.Panel GameField;
+        private System.Windows.Forms.Panel Panel1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.PictureBox GameField;
     }
 }
 

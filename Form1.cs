@@ -17,7 +17,7 @@ namespace MeecesPieces
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             Program.GameCore.Init();
-            GameField.Refresh();
+            Panel1.Refresh();
         }
 
         private void GameField_Paint(object sender, PaintEventArgs e)
@@ -48,7 +48,7 @@ namespace MeecesPieces
             int x = (e.X) / meeceWidth;
             int y = (e.Y) / meeceHeight;
             if (Program.GameCore.TrySetCurrentMeece(x, y))
-                GameField.Refresh();
+                Panel1.Refresh();
         }
 
         private void SetGameFieldSize()
@@ -62,8 +62,8 @@ namespace MeecesPieces
             }
             w *= meeceWidth;
             h *= meeceHeight;
-            w -= GameField.Width;
-            h -= GameField.Height;
+            w -= Panel1.Width;
+            h -= Panel1.Height;
             Width += w + 4;
             Height += h + 4;
         }
